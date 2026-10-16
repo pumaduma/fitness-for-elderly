@@ -139,8 +139,8 @@ make_report(
         ('-  Community Choir', 10.5, True, 14),
         ('  Sing golden oldies, train your lungs, and make new friends.', 10.5, False, 16),
         ('Health and safety', 13, True, 20),
-        ('All programs are designed and supervised by registered physiotherapists and certified', 10.5, False, 14),
-        ('instructors. First-time participants receive a simple health and fitness assessment.', 10.5, False, 16),
+        ('Our programs follow published physiotherapy and senior-fitness guidance, and will be led', 10.5, False, 14),
+        ('by qualified instructors. First-time participants receive a simple health assessment.', 10.5, False, 16),
     ],
     footer='Health information is for reference only and does not replace professional medical advice.',
 )

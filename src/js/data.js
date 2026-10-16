@@ -147,10 +147,10 @@ export const VOLUNTEER_ROLES = ['assistant', 'befriender', 'event', 'pro'];
 
 /* ---------------- News metadata (bodies live in locales) ---------------- */
 export const NEWS = [
-  { slug: 'new-tsuen-wan-satellite', category: 'announcement' },
-  { slug: 'fall-prevention-study-2025', category: 'research' },
-  { slug: 'auntie-fong-swimming-story', category: 'story' },
-  { slug: 'swd-voucher-scheme-2025', category: 'announcement' },
+  { slug: 'planned-district-centers', category: 'announcement' },
+  { slug: 'why-fall-prevention-matters', category: 'research' },
+  { slug: 'why-we-started', category: 'story' },
+  { slug: 'community-care-voucher-guide', category: 'health' },
 ];
 
 /* ---------------- Health stats with citations (for About / News) ----------------

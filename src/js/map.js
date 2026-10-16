@@ -76,14 +76,13 @@ function activateCard(id) {
 export function renderCenterCards() {
   const host = document.getElementById('center-list');
   const copy = t('centers.items');
-  host.innerHTML = CENTERS.map((c) => `
+  host.innerHTML = `<p class="form-note mb-1">${t('centers.plannedNote')}</p>` + CENTERS.map((c) => `
     <article class="center-card" data-center="${c.id}">
       <h3><span class="chip chip--${c.district}" aria-hidden="true"></span> ${copy[c.id].name}</h3>
       <p><b>${t('centers.mtr')}</b>：${copy[c.id].mtr}</p>
       <p>${copy[c.id].address}</p>
       <p><b>${t('centers.hours')}</b>：${copy[c.id].hours}</p>
       <p><b>${t('centers.facilities')}</b>：${copy[c.id].facilities}</p>
-      <p><b>☎</b> <a href="tel:+852${copy[c.id].phone.replace(/\s/g, '')}">${copy[c.id].phone}</a></p>
       <div class="btn-group">
         <button type="button" class="btn btn--outline" data-center-go="${c.id}">📍 ${t('centers.showOnMap')}</button>
         <a class="btn btn--secondary" href="/schedule.html" data-i18n="centers.viewSchedule"></a>
