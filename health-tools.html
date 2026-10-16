@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>健康小工具 — 樂齡健體 Fitness for the Elderly</title>
+  <meta name="description" content="三個實用健康小工具：BMI計算器、跌倒風險自評、每週活動紀錄。全部結果僅供參考，不能取代醫護人員意見。BMI calculator, fall-risk self-check and weekly activity tracker." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="health-tools">
+  <main id="main-content">
+    <section class="page-section" aria-labelledby="pg-title">
+      <div class="container" style="max-width:52rem">
+        <h1 id="pg-title" data-i18n="health.title"></h1>
+        <p class="lead" data-i18n="health.subtitle"></p>
+
+        <!-- in-page tool nav -->
+        <nav class="pill-row mt-2" aria-label="健康工具選單">
+          <a class="btn btn--ghost btn--sm" href="#tool-bmi" data-i18n="health.nav.bmi"></a>
+          <a class="btn btn--ghost btn--sm" href="#tool-fall" data-i18n="health.nav.fall"></a>
+          <a class="btn btn--ghost btn--sm" href="#tool-tracker" data-i18n="health.nav.tracker"></a>
+        </nav>
+
+        <!-- ============ BMI ============ -->
+        <article class="tool-card mt-2" id="tool-bmi" aria-labelledby="bmi-title">
+          <h2 id="bmi-title" data-i18n="health.bmi.title"></h2>
+          <p data-i18n="health.bmi.intro"></p>
+          <form id="bmi-form" novalidate>
+            <div class="tool-row mt-1">
+              <div class="form-field">
+                <label for="bmi-height" data-i18n="health.bmi.height"></label>
+                <input id="bmi-height" type="number" inputmode="decimal" min="100" max="250" step="0.1" required />
+              </div>
+              <div class="form-field">
+                <label for="bmi-weight" data-i18n="health.bmi.weight"></label>
+                <input id="bmi-weight" type="number" inputmode="decimal" min="20" max="250" step="0.1" required />
+              </div>
+            </div>
+            <button type="submit" class="btn btn--primary" data-i18n="health.bmi.calculate"></button>
+            <p class="field-error is-visible" id="bmi-err" data-i18n="health.bmi.err" style="margin-top:0.5rem"></p>
+          </form>
+          <div class="tool-result" id="bmi-result" hidden aria-live="polite"></div>
+          <p class="sr-note mt-1" data-i18n="health.bmi.note"></p>
+        </article>
+
+        <!-- ============ FALL-RISK QUIZ ============ -->
+        <article class="tool-card" id="tool-fall" aria-labelledby="fall-title">
+          <h2 id="fall-title" data-i18n="health.fall.title"></h2>
+          <p data-i18n="health.fall.intro"></p>
+          <form id="fall-form" novalidate>
+            <fieldset>
+              <legend data-i18n="health.fall.q1"></legend>
+              <label class="check-row check-row--boxed"><input type="radio" name="fq1" value="1" required /><span data-i18n="membership.eligibility.yes"></span></label>
+              <label class="check-row check-row--boxed"><input type="radio" name="fq1" value="0" /><span data-i18n="membership.eligibility.no"></span></label>
+            </fieldset>
+            <fieldset>
+              <legend data-i18n="health.fall.q2"></legend>
+              <label class="check-row check-row--boxed"><input type="radio" name="fq2" value="1" required /><span data-i18n="membership.eligibility.yes"></span></label>
+              <label class="check-row check-row--boxed"><input type="radio" name="fq2" value="0" /><span data-i18n="membership.eligibility.no"></span></label>
+            </fieldset>
+            <fieldset>
+              <legend data-i18n="health.fall.q3"></legend>
+              <label class="check-row check-row--boxed"><input type="radio" name="fq3" value="1" required /><span data-i18n="membership.eligibility.yes"></span></label>
+              <label class="check-row check-row--boxed"><input type="radio" name="fq3" value="0" /><span data-i18n="membership.eligibility.no"></span></label>
+            </fieldset>
+            <fieldset>
+              <legend data-i18n="health.fall.q4"></legend>
+              <label class="check-row check-row--boxed"><input type="radio" name="fq4" value="1" required /><span data-i18n="membership.eligibility.yes"></span></label>
+              <label class="check-row check-row--boxed"><input type="radio" name="fq4" value="0" /><span data-i18n="membership.eligibility.no"></span></label>
+            </fieldset>
+            <div class="btn-group">
+              <button type="submit" class="btn btn--primary" id="fall-start" data-i18n="health.fall.start"></button>
+              <button type="button" class="btn btn--ghost" id="fall-retake" data-i18n="health.fall.retake" hidden></button>
+            </div>
+          </form>
+          <div class="tool-result" id="fall-result" hidden aria-live="polite"></div>
+        </article>
+
+        <!-- ============ WEEKLY TRACKER ============ -->
+        <article class="tool-card" id="tool-tracker" aria-labelledby="tracker-title">
+          <h2 id="tracker-title" data-i18n="health.tracker.title"></h2>
+          <p data-i18n="health.tracker.intro"></p>
+          <p class="mt-1"><b data-i18n="health.tracker.goal"></b> · <span class="sr-note" data-i18n="health.tracker.saved"></span></p>
+          <div class="tracker-days mt-1" id="tracker-days"></div>
+          <div class="tracker-progress">
+            <progress class="bar" id="tracker-bar" max="150" value="0" aria-label=""></progress>
+            <div class="tracker-goal">
+              <span id="tracker-total"></span>
+              <span id="tracker-status" aria-live="polite"></span>
+            </div>
+          </div>
+          <button type="button" class="btn btn--ghost mt-1" id="tracker-reset" data-i18n="health.tracker.reset"></button>
+        </article>
+
+        <p class="form-note" data-i18n="common.disclaimerShort"></p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/health.js"></script>
+</body>
+</html>

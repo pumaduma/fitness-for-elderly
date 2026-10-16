@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#073434"/>
+  <circle cx="100" cy="100" r="180" fill="#0F5C5C" opacity="0.6"/>
+  <circle cx="1120" cy="560" r="220" fill="#0F5C5C" opacity="0.5"/>
+  <circle cx="600" cy="315" r="150" fill="#E8613C"/>
+  <circle cx="600" cy="315" r="70" fill="#F2A93B"/>
+  <circle cx="250" cy="200" r="14" fill="#d9534f"/>
+  <circle cx="950" cy="180" r="14" fill="#3e8f9e"/>
+  <circle cx="980" cy="470" r="14" fill="#7a5fb8"/>
+  <circle cx="210" cy="480" r="14" fill="#d98e2b"/>
+  <circle cx="600" cy="90" r="14" fill="#2e7d5b"/>
+  <circle cx="430" cy="540" r="14" fill="#b04a7a"/>
+  <text x="600" y="480" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="72" font-weight="800" fill="#FFF8F0">樂齡健體</text>
+  <text x="600" y="545" text-anchor="middle" font-family="Noto Sans, sans-serif" font-size="34" font-weight="700" fill="#F2A93B">FITNESS FOR THE ELDERLY</text>
+  <text x="600" y="590" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="26" fill="#e8ddc9">動起來，活得精彩 · Stay Active, Live Well</text>
+</svg>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>聯絡我們 — 樂齡健體 Fitness for the Elderly</title>
+  <meta name="description" content="聯絡樂齡健體：助老熱線 2388 1234、WhatsApp 6123 4567、電郵 info@ffe.org.hk。總部位於深水埗桂林街。Contact Fitness for the Elderly." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="contact">
+  <main id="main-content">
+    <section class="page-section" aria-labelledby="pg-title">
+      <div class="container">
+        <h1 id="pg-title" data-i18n="contact.title"></h1>
+        <p class="lead" data-i18n="contact.subtitle"></p>
+
+        <div class="contact-grid mt-2">
+          <div class="contact-tile">
+            <b data-i18n="contact.hotline"></b>
+            <a class="big" href="tel:+85223881234">2388 1234</a>
+            <p class="sr-note" data-i18n="contact.hotlineNote"></p>
+          </div>
+          <div class="contact-tile">
+            <b data-i18n="contact.whatsapp"></b>
+            <a class="big" href="https://wa.me/85261234567" rel="noopener">6123 4567</a>
+            <p class="sr-note" data-i18n="contact.whatsappNote"></p>
+          </div>
+          <div class="contact-tile">
+            <b data-i18n="contact.email"></b>
+            <a class="big" href="mailto:info@ffe.org.hk">info@ffe.org.hk</a>
+          </div>
+          <div class="contact-tile">
+            <b data-i18n="contact.addressTitle"></b>
+            <p data-i18n="contact.address"></p>
+          </div>
+          <div class="contact-tile">
+            <b data-i18n="contact.hoursTitle"></b>
+            <p style="white-space:pre-line" data-i18n="contact.hours"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--alt" aria-labelledby="form-title">
+      <div class="container" style="max-width:52rem">
+        <h2 id="form-title" data-i18n="contact.formTitle"></h2>
+        <form id="contact-form" class="mt-1" novalidate>
+          <div class="form-field">
+            <label for="c-name" data-i18n="contact.name"></label>
+            <input id="c-name" name="name" type="text" autocomplete="name" required aria-describedby="c-name-err" />
+            <p class="field-error" id="c-name-err" data-i18n="contact.errName"></p>
+          </div>
+          <div class="tool-row">
+            <div class="form-field">
+              <label for="c-phone" data-i18n="contact.phone"></label>
+              <input id="c-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" />
+            </div>
+            <div class="form-field">
+              <label for="c-email" data-i18n="contact.emailField"></label>
+              <input id="c-email" name="email" type="email" autocomplete="email" />
+            </div>
+          </div>
+          <p class="field-error is-visible" id="c-contact-err" data-i18n="contact.errContact"></p>
+          <div class="form-field">
+            <label for="c-topic" data-i18n="contact.topic"></label>
+            <select id="c-topic" name="topic" required aria-describedby="c-topic-err"><option value=""></option></select>
+            <p class="field-error" id="c-topic-err" data-i18n="contact.errTopic"></p>
+          </div>
+          <div class="form-field">
+            <label for="c-message" data-i18n="contact.message"></label>
+            <textarea id="c-message" name="message" required data-i18n-attr="placeholder:contact.messagePh" aria-describedby="c-message-err"></textarea>
+            <p class="field-error" id="c-message-err" data-i18n="contact.errMessage"></p>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg" data-i18n="contact.submit"></button>
+        </form>
+        <div class="banner banner--success mt-1" id="c-success" hidden role="status" data-i18n="contact.success"></div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="faq-title">
+      <div class="container" style="max-width:52rem">
+        <h2 id="faq-title" data-i18n="contact.faqTitle"></h2>
+        <div class="mt-2" id="faq-list"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/contact.js"></script>
+</body>
+</html>

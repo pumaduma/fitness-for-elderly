@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>健體課程 — 樂齡健體 Fitness for the Elderly</title>
+  <meta name="description" content="八個低強度健體課程：防跌訓練、楊式太極、溫水水中健體、椅上肌力、伸展放鬆、健步同行、腦力遊戲及合唱團，適合不同體能水平的60歲以上長者。" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="programs">
+  <main id="main-content">
+    <section class="page-section" aria-labelledby="pg-title">
+      <div class="container">
+        <h1 id="pg-title" data-i18n="programs.title"></h1>
+        <p class="lead" data-i18n="programs.subtitle"></p>
+
+        <div class="filter-bar mt-2" role="search">
+          <input type="search" id="program-search" data-i18n-attr="placeholder:programs.searchPlaceholder" aria-label="">
+          <div class="filter-pills" id="program-filters" role="group" aria-label="課程分類"></div>
+        </div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+
+        <div class="card-grid" id="program-list"></div>
+        <div class="no-results" id="no-results" hidden data-i18n="programs.noResults"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/programs.js"></script>
+</body>
+</html>

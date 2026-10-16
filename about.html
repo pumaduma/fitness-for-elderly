@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>關於我們 — 樂齡健體 Fitness for the Elderly</title>
+  <meta name="description" content="樂齡健體由三位香港國際學校學生——Zi Chi、Daniel Chua 與 Adrian Preston Wong——創立的非牟利組織。認識創辦團隊、我們的故事、第一年目標及刊物下載。About Fitness for the Elderly, founded by three Hong Kong International School students." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="about">
+  <main id="main-content">
+    <section class="page-section" aria-labelledby="pg-title">
+      <div class="container">
+        <h1 id="pg-title" data-i18n="about.title"></h1>
+        <p class="lead" data-i18n="about.subtitle"></p>
+
+        <div class="grid-2 mt-2">
+          <article class="card">
+            <h2 data-i18n="about.missionTitle"></h2>
+            <p style="font-weight:700;color:var(--coral-dark)" data-i18n="about.mission"></p>
+            <p data-i18n="about.vision"></p>
+          </article>
+          <article class="card">
+            <h2 data-i18n="home.mission.title"></h2>
+            <p data-i18n="home.mission.body"></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIRST-YEAR GOALS (the organisation currently has no members yet) -->
+    <section class="page-section page-section--teal" aria-labelledby="impact-title">
+      <div class="container">
+        <h2 id="impact-title" data-i18n="about.impactTitle"></h2>
+        <p style="color:#e8ddc9" data-i18n="about.impactSubtitle"></p>
+        <div class="stat-cards mt-2" id="impact-cards"></div>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section class="page-section" aria-labelledby="history-title">
+      <div class="container">
+        <h2 id="history-title" data-i18n="about.historyTitle"></h2>
+        <div class="timeline mt-2" id="history-timeline"></div>
+      </div>
+    </section>
+
+    <!-- BOARD -->
+    <section class="page-section page-section--alt" aria-labelledby="board-title">
+      <div class="container">
+        <h2 id="board-title" data-i18n="about.boardTitle"></h2>
+        <div class="board-grid mt-2" id="board-grid"></div>
+      </div>
+    </section>
+
+    <!-- ANNUAL REPORTS -->
+    <section class="page-section" id="reports" aria-labelledby="reports-title">
+      <div class="container">
+        <h2 id="reports-title" data-i18n="about.reportsTitle"></h2>
+        <div class="card-grid mt-2" id="reports-grid"></div>
+      </div>
+    </section>
+
+    <!-- HK STATS WITH CITATIONS -->
+    <section class="page-section page-section--alt" aria-labelledby="stats-title">
+      <div class="container">
+        <h2 id="stats-title" data-i18n="about.statsTitle"></h2>
+        <p class="lead" data-i18n="about.statsNote"></p>
+        <div class="grid-2 mt-2" id="hk-stats"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/about.js"></script>
+</body>
+</html>

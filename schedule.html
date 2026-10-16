@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程時間表 — 樂齡健體 Fitness for the Elderly</title>
+  <meta name="description" content="查看六間地區中心未來一週的課堂時間表，網上留位，毋須預先繳費。所有課程對60歲或以上會員免費。" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="schedule">
+  <main id="main-content">
+    <section class="page-section" aria-labelledby="pg-title">
+      <div class="container">
+        <h1 id="pg-title" data-i18n="schedule.title"></h1>
+        <p class="lead" data-i18n="schedule.subtitle"></p>
+
+        <div class="schedule-controls mt-2">
+          <label for="center-select" style="font-weight:700" data-i18n="schedule.centerLabel"></label>
+          <select id="center-select"></select>
+          <div class="week-nav">
+            <button type="button" class="icon-btn" id="week-prev" aria-label="">←</button>
+            <b id="week-label"></b>
+            <button type="button" class="icon-btn" id="week-next" aria-label="">→</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="week-today" data-i18n="schedule.thisWeek"></button>
+          </div>
+        </div>
+
+        <div class="pill-row mb-1" id="schedule-legend" aria-hidden="true"></div>
+
+        <div class="timetable-grid" id="timetable" role="group"></div>
+
+        <div class="my-bookings">
+          <h2 data-i18n="schedule.myBookings.title"></h2>
+          <p class="sr-note" id="bookings-count" aria-live="polite"></p>
+          <p class="form-note" id="bookings-empty" data-i18n="schedule.myBookings.empty"></p>
+          <ul id="bookings-list"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/schedule.js"></script>
+</body>
+</html>

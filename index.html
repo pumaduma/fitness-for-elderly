@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>樂齡健體 Fitness for the Elderly — 動起來，活得精彩</title>
+  <meta name="description" content="樂齡健體由香港國際學校學生創立，為60歲或以上長者提供防跌訓練、太極、水中健體等免費低強度課程。現正招募首批會員。Fitness for the Elderly — a Hong Kong non-profit founded by HKIS students, providing free low-impact fitness programs for seniors aged 60+." />
+  <meta property="og:title" content="樂齡健體 Fitness for the Elderly — 動起來，活得精彩 Stay Active, Live Well" />
+  <meta property="og:description" content="由香港國際學校學生創立，為60歲或以上長者提供防跌訓練、太極、水中健體等低強度課程。現正招募首批會員。Low-impact fitness for Hong Kong seniors aged 60+, founded by HKIS students." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_Hant" />
+  <meta property="og:locale:alternate" content="en_HK" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    /* Apply persisted accessibility + language settings before first paint. */
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="home">
+  <main id="main-content">
+
+    <!-- ============ HERO + N-BODY SIMULATION ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div>
+          <h1 id="hero-title" data-i18n="home.hero.title"></h1>
+          <p class="lead mt-1" data-i18n="home.hero.subtitle"></p>
+          <div class="hero__cta">
+            <a class="btn btn--light btn--lg" href="/programs.html" data-i18n="home.hero.ctaPrograms"></a>
+            <a class="btn btn--primary btn--lg" href="/membership.html" data-i18n="home.hero.ctaJoin"></a>
+            <a class="btn btn--outline-light btn--lg" href="/donate.html" data-i18n="home.hero.ctaDonate"></a>
+          </div>
+          <div class="hero__stats">
+            <div class="hero-stat"><b>3</b><span data-i18n="home.hero.stats.founders"></span></div>
+            <div class="hero-stat"><b>8</b><span data-i18n="home.hero.stats.programs"></span></div>
+            <div class="hero-stat"><b>6</b><span data-i18n="home.hero.stats.centers"></span></div>
+            <div class="hero-stat"><b>0</b><span data-i18n="home.hero.stats.members"></span></div>
+          </div>
+        </div>
+
+        <div class="sim-wrap">
+          <h2 style="color:#fff;font-size:1.25rem;margin:0 0 0.6rem" data-i18n="home.hero.simTitle"></h2>
+          <div class="sim-stage" id="sim-stage">
+            <canvas id="sim-canvas" role="img"
+              aria-label="樂齡健體社區生態系統模擬：淡金色的星代表三位創辦人，其他光點代表未來會員，圍繞中央的社區中心運行。N-body simulation of the Fitness for the Elderly community ecosystem: pale-gold stars are the founders, other lights are future members orbiting the community center.">
+            </canvas>
+            <div class="sim-tooltip" id="sim-tooltip" hidden></div>
+          </div>
+          <div class="sim-controls">
+            <div class="btn-group">
+              <button type="button" class="btn btn--light" id="sim-play" aria-pressed="true"></button>
+              <button type="button" class="btn btn--ghost" id="sim-reset" data-i18n="sim.reset"></button>
+            </div>
+          </div>
+          <p class="sim-note" id="sim-note" hidden data-i18n="sim.reducedMotionNote"></p>
+          <div class="sim-legend" id="sim-legend"></div>
+          <p style="font-size:var(--fs-small);color:#cfe0dd;margin-top:0.5rem" data-i18n="home.hero.simHint"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MISSION ============ -->
+    <section class="page-section" aria-labelledby="mission-title">
+      <div class="container">
+        <h2 id="mission-title" data-i18n="home.mission.title"></h2>
+        <p class="lead mb-2" data-i18n="home.mission.body"></p>
+        <div class="grid-2" id="mission-values"></div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="page-section page-section--alt" aria-labelledby="how-title">
+      <div class="container">
+        <h2 id="how-title" data-i18n="home.howItWorks.title"></h2>
+        <div class="grid-2 mt-2" id="how-steps"></div>
+      </div>
+    </section>
+
+    <!-- ============ PROGRAM HIGHLIGHTS ============ -->
+    <section class="page-section" aria-labelledby="hl-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="hl-title" data-i18n="home.highlights.title"></h2>
+          <p class="lead" data-i18n="home.highlights.subtitle"></p>
+        </div>
+        <div class="card-grid" id="program-highlights"></div>
+        <div class="mt-2">
+          <a class="btn btn--secondary" href="/programs.html" data-i18n="common.viewAll"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MEMBER STORIES ============ -->
+    <section class="page-section page-section--teal" aria-labelledby="stories-title">
+      <div class="container">
+        <h2 id="stories-title" data-i18n="home.testimonialTitle"></h2>
+        <p class="mt-1" style="color:#e8ddc9;max-width:48rem" data-i18n="home.founders.intro"></p>
+        <div class="card-grid mt-2" id="founder-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ NEWS TEASER ============ -->
+    <section class="page-section" aria-labelledby="news-title">
+      <div class="container">
+        <h2 id="news-title" data-i18n="nav.news"></h2>
+        <div class="card-grid mt-2" id="news-teaser"></div>
+        <div class="mt-2">
+          <a class="btn btn--secondary" href="/news.html" data-i18n="common.viewAll"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="page-section page-section--alt" aria-labelledby="cta-title">
+      <div class="container center">
+        <h2 id="cta-title" data-i18n="home.ctaBand.title"></h2>
+        <p class="lead" style="margin-inline:auto" data-i18n="home.ctaBand.body"></p>
+        <div class="btn-group mt-2" style="justify-content:center">
+          <a class="btn btn--primary btn--lg" href="/membership.html" data-i18n="home.ctaBand.cta1"></a>
+          <a class="btn btn--secondary btn--lg" href="/volunteers.html" data-i18n="home.ctaBand.cta2"></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/home.js"></script>
+</body>
+</html>

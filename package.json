@@ -1,0 +1,22 @@
+{
+  "name": "fitness-for-elderly",
+  "version": "1.0.0",
+  "private": true,
+  "description": "樂齡健體 Fitness for the Elderly — bilingual (ZH-TW/EN) multi-page website for a Hong Kong elderly fitness NGO",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "verify": "node scripts/verify.mjs",
+    "qa": "node scripts/qa.mjs",
+    "reports": "python3 scripts/make-reports.py"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.13.0",
+    "vite": "^7.1.0"
+  }
+}

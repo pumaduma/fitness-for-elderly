@@ -1,0 +1,193 @@
+/* ============================================================
+   樂齡健體 Fitness for the Elderly — Design System
+   Design tokens + reset + base typography.
+   WCAG 2.1 AA: 18px base font, contrast ratios ≥ 4.5:1 (text),
+   ≥ 3:1 (UI components), 48px minimum tap targets.
+   ============================================================ */
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Brand palette */
+  --coral: #e8613c;          /* warm coral — primary action */
+  --coral-dark: #c1441f;     /* hover/active, passes 4.5:1 on cream */
+  --coral-deeper: #9e3013;
+  --teal: #0f5c5c;           /* deep teal — headings, structural */
+  --teal-dark: #0a4444;
+  --teal-darker: #073434;
+  --cream: #fff8f0;          /* soft cream — page background */
+  --cream-2: #fdf0e2;        /* card background */
+  --gold: #f2a93b;           /* accessible gold accent */
+  --gold-dark: #8a5a00;      /* gold text on light backgrounds */
+  --ink: #1d2320;            /* body text on cream */
+  --ink-soft: #3c4744;       /* secondary text */
+  --white: #ffffff;
+
+  /* District colours (used on map + N-body sim) — all ≥ 3:1 vs canvas bg */
+  --district-ssp: #d9534f;   /* Sham Shui Po 深水埗 */
+  --district-kt:  #3e8f9e;   /* Kwun Tong 觀塘 */
+  --district-st:  #7a5fb8;   /* Sha Tin 沙田 */
+  --district-tm:  #d98e2b;   /* Tuen Mun 屯門 */
+  --district-ct:  #2e7d5b;   /* Central 中環 */
+  --district-tko: #b04a7a;   /* Tseung Kwan O 將軍澳 */
+
+  /* Semantic */
+  --focus-ring: #1a5fb4;
+  --success: #1e7a3c;
+  --success-bg: #e3f4e8;
+  --error: #b3261e;
+  --error-bg: #fdecea;
+  --info: #0b5cab;
+  --info-bg: #e7f2fb;
+  --warning-bg: #fdf3dd;
+  --border: #cbb8a3;
+  --border-strong: #8a7a68;
+  --shadow-sm: 0 1px 3px rgba(29, 35, 32, 0.12);
+  --shadow-md: 0 4px 14px rgba(29, 35, 32, 0.16);
+  --shadow-lg: 0 10px 30px rgba(29, 35, 32, 0.22);
+
+  /* Typography scale (font-size classes set on <html>) */
+  --fs-base: 1.125rem;        /* 18px */
+  --fs-h1: clamp(2rem, 5vw, 3.25rem);
+  --fs-h2: clamp(1.6rem, 4vw, 2.4rem);
+  --fs-h3: clamp(1.25rem, 2.6vw, 1.6rem);
+  --fs-large: 1.25rem;
+  --fs-small: 1rem;
+  --lh-body: 1.75;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+
+  --tap-min: 48px;             /* minimum interactive target */
+  --content-max: 72rem;        /* 1152px */
+  --header-h: 76px;
+}
+
+/* Font-size steps driven by the accessibility toolbar */
+html[data-fs="100"]   { font-size: 100%; }
+html[data-fs="112"]   { font-size: 112.5%; }
+html[data-fs="125"]   { font-size: 125%; }
+html[data-fs="137"]   { font-size: 137.5%; }
+
+/* High-contrast mode: swap tokens for ≥ 7:1 contrast */
+html.high-contrast {
+  --cream: #ffffff;
+  --cream-2: #f3efe9;
+  --ink: #000000;
+  --ink-soft: #202020;
+  --coral: #a8280c;
+  --coral-dark: #7c1d07;
+  --teal: #073f3f;
+  --teal-dark: #052f2f;
+  --gold-dark: #6b4400;
+  --border: #4a4a4a;
+  --border-strong: #222222;
+}
+html.high-contrast * { text-shadow: none !important; }
+html.high-contrast img, html.high-contrast canvas, html.high-contrast svg { outline: 1px solid #222; }
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+html.reduce-motion, html.reduce-motion * {
+  scroll-behavior: auto !important;
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+body {
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+    "Heiti TC", "Hiragino Sans", system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+img, svg, canvas { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+h1, h2, h3, h4 {
+  line-height: 1.3;
+  color: var(--teal);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+a { color: var(--coral-dark); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--coral-deeper); }
+
+/* Visible, consistent focus indicator everywhere (2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* Screen-reader-only helper */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0); clip-path: inset(50%);
+  overflow: hidden; white-space: nowrap;
+}
+
+/* Skip link — first focusable element on every page */
+.skip-link {
+  position: absolute;
+  top: -100px; left: 1rem;
+  z-index: 1000;
+  background: var(--teal);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  font-weight: 700;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 0; color: #fff; }
+
+/* Page shell */
+.container {
+  width: min(100% - 2.5rem, var(--content-max));
+  margin-inline: auto;
+}
+.page-section { padding: 3.5rem 0; }
+.page-section--alt { background: var(--cream-2); }
+.page-section--teal { background: var(--teal); color: #fff; }
+.page-section--teal h2, .page-section--teal h3 { color: #fff; }
+
+.lead {
+  font-size: var(--fs-large);
+  color: var(--ink-soft);
+  max-width: 52rem;
+}
+
+/* Live region for announcements (screen readers) */
+[aria-live="polite"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media print {
+  .site-header, .site-footer, .a11y-toolbar, .skip-link { display: none !important; }
+}

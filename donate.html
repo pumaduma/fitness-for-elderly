@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>捐款支持 — 樂齡健體 Fitness for the Elderly</title>
+  <meta name="description" content="捐款支持樂齡健體：$100資助防跌課程、$300一個月免費課堂。獲豁免繳稅慈善機構（S88），捐款$100或以上可申請扣稅。Donate to support elderly fitness in Hong Kong." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="donate">
+  <main id="main-content">
+    <section class="page-section" aria-labelledby="pg-title">
+      <div class="container" style="max-width:52rem">
+        <h1 id="pg-title" data-i18n="donate.title"></h1>
+        <p class="lead" data-i18n="donate.subtitle"></p>
+
+        <div class="card-grid mt-2" id="donate-impact"></div>
+
+        <form id="donate-form" class="mt-2" novalidate>
+          <fieldset>
+            <legend data-i18n="donate.freq.label"></legend>
+            <label class="check-row check-row--boxed"><input type="radio" name="freq" value="once" checked /><span data-i18n="donate.freq.once"></span></label>
+            <label class="check-row check-row--boxed"><input type="radio" name="freq" value="monthly" /><span data-i18n="donate.freq.monthly"></span></label>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="donate.tierLabel"></legend>
+            <div class="donate-tiers" id="donate-tiers" role="radiogroup" aria-label=""></div>
+            <label class="check-row check-row--boxed" id="custom-tier">
+              <input type="radio" name="amount" value="custom" />
+              <span style="flex:1">
+                <span data-i18n="donate.custom"></span>
+                <input type="number" id="custom-amount" min="10" step="10" inputmode="numeric" style="min-height:48px;margin-top:0.5rem;width:100%;border:2px solid var(--border-strong);border-radius:8px;padding:0.5rem 0.75rem" data-i18n-attr="placeholder:donate.customPh" aria-label="" />
+              </span>
+            </label>
+            <p class="field-error is-visible" id="amount-err" data-i18n="donate.errAmount"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="donate.payMethod"></legend>
+            <div class="pay-methods">
+              <label class="pay-method"><input type="radio" name="pay" value="fps" checked /> <span data-i18n="donate.fps"></span></label>
+              <label class="pay-method"><input type="radio" name="pay" value="card" /> <span data-i18n="donate.card"></span></label>
+              <label class="pay-method"><input type="radio" name="pay" value="cheque" /> <span data-i18n="donate.cheque"></span></label>
+            </div>
+            <p class="form-note mt-1" id="pay-detail"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="donate.donorInfo"></legend>
+            <div class="tool-row">
+              <div class="form-field">
+                <label for="d-name" data-i18n="donate.name"></label>
+                <input id="d-name" name="name" type="text" autocomplete="name" required aria-describedby="d-name-err" />
+                <p class="field-error" id="d-name-err" data-i18n="donate.errName"></p>
+              </div>
+              <div class="form-field">
+                <label for="d-email" data-i18n="donate.email"></label>
+                <input id="d-email" name="email" type="email" autocomplete="email" required aria-describedby="d-email-err" />
+                <p class="field-error" id="d-email-err" data-i18n="donate.errEmail"></p>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="d-phone" data-i18n="donate.phone"></label>
+              <input id="d-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" />
+            </div>
+            <label class="check-row"><input type="checkbox" name="anonymous" /><span data-i18n="donate.anonymous"></span></label>
+            <label class="check-row"><input type="checkbox" name="receipt" checked /><span data-i18n="donate.receipt"></span></label>
+          </fieldset>
+
+          <button type="submit" class="btn btn--primary btn--lg" style="width:100%" data-i18n="donate.submit"></button>
+          <p class="sr-note mt-1" data-i18n="donate.taxNote"></p>
+        </form>
+
+        <div class="banner banner--success mt-2" id="d-success" hidden>
+          <h2 data-i18n="donate.success"></h2>
+          <p data-i18n="donate.successBody"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/donate.js"></script>
+</body>
+</html>

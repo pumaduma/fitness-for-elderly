@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>最新消息 — 樂齡健體 Fitness for the Elderly</title>
+  <meta name="description" content="樂齡健體最新消息：機構動態、健康資訊、會員故事及研究新知。News and stories from Fitness for the Elderly." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="news">
+  <main id="main-content">
+    <!-- LISTING VIEW -->
+    <section class="page-section" id="news-listing" aria-labelledby="pg-title">
+      <div class="container">
+        <h1 id="pg-title" data-i18n="news.title"></h1>
+        <p class="lead" data-i18n="news.subtitle"></p>
+        <div class="filter-pills mt-2" id="news-filters" role="group" aria-label=""></div>
+        <div class="card-grid mt-2" id="news-list"></div>
+      </div>
+    </section>
+
+    <!-- ARTICLE VIEW (deep-linkable: /news.html#article=slug) -->
+    <section class="page-section" id="news-article" hidden>
+      <div class="container article-view">
+        <a class="btn btn--ghost btn--sm" href="/news.html" data-i18n="common.backToNews"></a>
+        <article id="article-body"></article>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/news.js"></script>
+</body>
+</html>

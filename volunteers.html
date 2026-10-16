@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-fs="100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>義工招募 — 樂齡健體 Fitness for the Elderly</title>
+  <meta name="description" content="成為樂齡健體義工：課堂助教、關懷探訪員、活動支援及專業義工崗位，全年招募，服務時段彈性。Volunteer with Fitness for the Elderly." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/base.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/pages.css" />
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('ffe-a11y')) || {};
+      if (p.fs) document.documentElement.setAttribute('data-fs', p.fs);
+      if (p.contrast) document.documentElement.classList.add('high-contrast');
+      if (p.motion) document.documentElement.classList.add('reduce-motion');
+    } catch (e) {}
+    try { if (localStorage.getItem('ffe-lang') === 'en') document.documentElement.lang = 'en'; } catch (e) {}
+  </script>
+</head>
+<body data-page="volunteers">
+  <main id="main-content">
+    <section class="page-section" aria-labelledby="pg-title">
+      <div class="container">
+        <h1 id="pg-title" data-i18n="volunteers.title"></h1>
+        <p class="lead" data-i18n="volunteers.subtitle"></p>
+
+        <h2 class="mt-2" data-i18n="volunteers.whyTitle"></h2>
+        <div class="grid-2 mt-1" id="vol-why"></div>
+
+        <h2 class="mt-3" data-i18n="volunteers.rolesTitle"></h2>
+        <div class="card-grid mt-1" id="vol-roles"></div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--alt" aria-labelledby="vol-form-title">
+      <div class="container" style="max-width:52rem">
+        <h2 id="vol-form-title" data-i18n="volunteers.form.title"></h2>
+        <form id="volunteer-form" class="mt-1" novalidate>
+          <div class="form-field">
+            <label for="v-name" data-i18n="volunteers.form.name"></label>
+            <input id="v-name" name="name" type="text" autocomplete="name" required aria-describedby="v-name-err" />
+            <p class="field-error" id="v-name-err" data-i18n="volunteers.form.errName"></p>
+          </div>
+          <div class="tool-row">
+            <div class="form-field">
+              <label for="v-phone" data-i18n="volunteers.form.phone"></label>
+              <input id="v-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" required aria-describedby="v-phone-err" />
+              <p class="field-error" id="v-phone-err" data-i18n="volunteers.form.errPhone"></p>
+            </div>
+            <div class="form-field">
+              <label for="v-email" data-i18n="volunteers.form.email"></label>
+              <input id="v-email" name="email" type="email" autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="v-role" data-i18n="volunteers.form.role"></label>
+            <select id="v-role" name="role" required aria-describedby="v-role-err">
+              <option value="" data-i18n="volunteers.form.rolePh"></option>
+            </select>
+            <p class="field-error" id="v-role-err" data-i18n="volunteers.form.errRole"></p>
+          </div>
+          <fieldset>
+            <legend data-i18n="volunteers.form.availability"></legend>
+            <label class="check-row"><input type="checkbox" name="avail" value="weekdays" /><span data-i18n="volunteers.form.weekdays"></span></label>
+            <label class="check-row"><input type="checkbox" name="avail" value="weekend" /><span data-i18n="volunteers.form.weekend"></span></label>
+            <label class="check-row"><input type="checkbox" name="avail" value="anytime" /><span data-i18n="volunteers.form.anytime"></span></label>
+          </fieldset>
+          <div class="form-field">
+            <label for="v-experience" data-i18n="volunteers.form.experience"></label>
+            <textarea id="v-experience" name="experience" data-i18n-attr="placeholder:volunteers.form.experiencePh"></textarea>
+          </div>
+          <label class="check-row">
+            <input type="checkbox" name="consent" required />
+            <span data-i18n="volunteers.form.consent"></span>
+          </label>
+          <p class="field-error" id="v-consent-err" data-i18n="common.errorRequired" style="margin-top:0.25rem"></p>
+          <button type="submit" class="btn btn--primary btn--lg mt-1" data-i18n="volunteers.form.submit"></button>
+        </form>
+        <div class="banner banner--success mt-1" id="v-success" hidden role="status" data-i18n="volunteers.form.success"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/volunteer.js"></script>
+</body>
+</html>
